@@ -1,0 +1,11 @@
+<%= link_to('New Computer', new_computer_path) %>
+<br><br>
+  <% @computers.each do |computer| %>
+  <%= computer.computer_name %>
+  <%= computer.memory %> GB
+  <br>
+  <%= link_to('Edit Comptuer', edit_computer_path(computer.id))  %>
+  <%= link_to 'Delete Computer', computer_path(computer.id), method: :delete %>
+  <%= link_to 'View Programs Installed', computer_programs_path(computer.id) %>
+  <br>
+<% end %>

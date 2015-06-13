@@ -1,0 +1,6 @@
+<%= form_for(@computer) do |f| %>
+<p>Computer Name: <%= f.text_field :computer_name %></p>
+<p>Memory: <%= f.text_field :memory %>GB </p>
+<p> <%= f.submit 'Update' %></p>
+<% end %>
+<%= link_to 'Back', computers_path %>

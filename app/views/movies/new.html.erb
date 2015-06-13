@@ -1,0 +1,5 @@
+<%= form_for(@movie) do |f| %>
+<p>MovieTitle <%= f.text_field :title %></p>
+<p>Release Date <%= f.datetime_select :realeased_at, start_year: 1980 %></p>
+<p> <%= f.submit 'Submit' %></p>
+<% end %>

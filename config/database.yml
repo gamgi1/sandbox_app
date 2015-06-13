@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: sandbox_development
+
+
+test:
+  <<: *default
+  database: sandbox_test
+
+production:
+  <<: *default
+  database: sandbox_production
+  username: sandbox
+  password: <%= ENV['SANDBOX_DATABASE_PASSWORD'] %>

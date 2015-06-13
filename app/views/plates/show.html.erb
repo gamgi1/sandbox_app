@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plate.name %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @plate.calories %>
+</p>
+
+
+<% @meals.each do |meal| %>
+  <%if meal.calories > @plate.calories %>
+    <% @accepted_meals.push(meal) %>
+  <% end %>
+<% end %>
+<div class="btn-group" data-toggle="buttons">
+<% @accepted_meals.each do |am| %>
+  <label class="btn btn-primary">
+    <input type="checkbox" autocomplete="off"> <%= am.name %> <%= am.calories %>
+  </label>
+  <br>
+<% end %>
+</div>
+
+<br>
+<%= link_to 'Edit', edit_plate_path(@plate) %> |
+<%= link_to 'Back', plates_path %>

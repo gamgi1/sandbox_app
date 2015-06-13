@@ -1,0 +1,35 @@
+<h1 class="page-header">All the Meals</h1>
+<div class="pull-right">
+    <a class="btn btn-lg btn-success" href="<%= new_meal_path %>">
+      <span class="glyphicon glyphicon-plus"></span>
+    </a>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Calories</th>
+      <th>Restaurant</th>
+      <th>Prep-time</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meals.each do |meal|  %>
+    <tr>
+      <td> <%= link_to(meal.name, meal_path(meal.id)) %></td>
+      <td> <%= meal.calories %></td>
+      <td> <%= meal.restaurant %></td>
+      <td> <%= meal.prep_time %></td>
+      <td>
+        <a class="btn btn-warning" href="<%= edit_meal_path(meal.id) %>">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <a class="btn btn-danger" href="<%= meal_path(meal.id) %>" data-method="delete">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

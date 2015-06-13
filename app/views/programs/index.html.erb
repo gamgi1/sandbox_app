@@ -1,0 +1,14 @@
+<h1> <%= @computer.computer_name %></h1>
+<p>Programs Installed:</p>
+
+<ul>
+<% @programs.each do |program| %>
+  <li> <%= program.program_name %></li>
+  <%= program.program_size %>MB
+  <%= link_to('Edit Program', edit_computer_program_path(@computer.id, program.id)) %>
+  <%= link_to('Delete Program', computer_program_path(@computer.id, program.id), method: :delete) %>
+<% end %>
+</ul>
+
+<%= link_to('Add a Program', new_computer_program_path(@computer.id)) %>
+<%= link_to('Back', computers_path) %>

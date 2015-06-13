@@ -1,0 +1,7 @@
+<h1> <%= @computer.computer_name %></h1>
+<%= form_for @program, url: computer_program_path(@computer.id, @program.id) do |f| %>
+<p>Program name: <%=f.text_field :program_name %></p>
+<p>Program size: <%=f.text_field :program_size %>MB </p>
+<p> <%= f.submit 'Change' %></p>
+<% end %>
+<%= link_to 'Back', computer_programs_path(@computer) %>
